@@ -11,6 +11,7 @@ import {
   DB_USER,
 } from './config/constants';
 import { UsuariosModule } from './Sistema_A/usuarios/usuarios.module';
+import { RolesModule } from './Sistema_A/roles/roles.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { UsuariosModule } from './Sistema_A/usuarios/usuarios.module';
     }),
 
     UsuariosModule,
+    RolesModule
   ],
   controllers: [AppController],
   providers: [AppService],

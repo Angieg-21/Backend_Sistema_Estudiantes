@@ -9,7 +9,7 @@ export class RolesController {
      
    @Get()
    getAll(){
-    return this.rolesService.getAll
+    return this.rolesService.getAll();
    }
 
    @UsePipes(new ValidationPipe({whitelist:true}))

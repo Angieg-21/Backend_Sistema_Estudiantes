@@ -16,11 +16,7 @@ export class RolesService {
   async getAll():Promise<Role[]>{
     const roles = await this.rolrepository.find()
 
-    if(!roles.length){
-      throw new BadRequestException(new MessageDto('No hay roles'))
-
-    }
-
+    if(!roles.length)throw new BadRequestException(new MessageDto('No hay roles'))
     return roles;
   }
 
@@ -31,9 +27,8 @@ export class RolesService {
     if(exist){
 
       throw new BadRequestException(new MessageDto('El rol ya existe'))
-
-
     }
     await this.rolrepository.save(dto as Role )
+    return new MessageDto('Rol Creado');
   }
 }

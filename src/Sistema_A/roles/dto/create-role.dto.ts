@@ -4,8 +4,6 @@ import { NombreRoles } from "../roles.enum";
 
 export class CreateRoleDto {
 
-
-
-    @IsEnum(Role, {message: 'El rol sólo puede ser user o admin'})
+    @IsEnum(NombreRoles, {message: 'El rol sólo puede ser   admin,estudiante y docente'})
     rolNombre:NombreRoles;
 }
