@@ -12,6 +12,7 @@ import {
 } from './config/constants';
 import { UsuariosModule } from './Sistema_A/usuarios/usuarios.module';
 import { RolesModule } from './Sistema_A/roles/roles.module';
+import { DocentesModule } from './Sistema_A/usuarios/components/docentes/docentes.module';
 
 @Module({
   imports: [
@@ -37,7 +38,8 @@ import { RolesModule } from './Sistema_A/roles/roles.module';
     }),
 
     UsuariosModule,
-    RolesModule
+    RolesModule,
+    DocentesModule
   ],
   controllers: [AppController],
   providers: [AppService],
