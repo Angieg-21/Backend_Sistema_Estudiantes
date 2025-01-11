@@ -13,6 +13,8 @@ import {
 import { UsuariosModule } from './Sistema_A/usuarios/usuarios.module';
 import { RolesModule } from './Sistema_A/roles/roles.module';
 import { DocentesModule } from './Sistema_A/usuarios/components/docentes/docentes.module';
+import { EstudiantesModule } from './Sistema_A/usuarios/components/estudiantes/estudiantes.module';
+import { CarrerasModule } from './Sistema_A/carreras/carreras.module';
 
 @Module({
   imports: [
@@ -39,7 +41,9 @@ import { DocentesModule } from './Sistema_A/usuarios/components/docentes/docente
 
     UsuariosModule,
     RolesModule,
-    DocentesModule
+    DocentesModule,
+    EstudiantesModule,
+    CarrerasModule
   ],
   controllers: [AppController],
   providers: [AppService],

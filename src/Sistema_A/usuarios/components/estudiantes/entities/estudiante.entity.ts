@@ -18,7 +18,7 @@ import { Role } from 'src/Sistema_A/roles/entities/role.entity';
   
   @Entity('estudiante')
   export class Estudiante {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
   
     @Column({ type: 'varchar', length: 100 })

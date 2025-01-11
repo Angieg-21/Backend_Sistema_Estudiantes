@@ -1,34 +1,28 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put, UsePipes, ValidationPipe, ParseIntPipe } from '@nestjs/common';
 import { CarrerasService } from './carreras.service';
 import { CreateCarreraDto } from './dto/create-carrera.dto';
 import { UpdateCarreraDto } from './dto/update-carrera.dto';
+import { ApiResponse } from '@nestjs/swagger';
+import { Carrera } from './entities/carrera.entity';
 
 @Controller('carreras')
 export class CarrerasController {
-  constructor(private readonly carrerasService: CarrerasService) {}
-
-  @Post()
-  create(@Body() createCarreraDto: CreateCarreraDto) {
-    return this.carrerasService.create(createCarreraDto);
-  }
+  constructor(private readonly carreraService: CarrerasService) {}
 
   @Get()
-  findAll() {
-    return this.carrerasService.findAll();
+  async getAll() {
+      return await this.carreraService.getAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.carrerasService.findOne(+id);
+  async getOne(@Param('id', ParseIntPipe) id: number) {
+      return await this.carreraService.findById(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCarreraDto: UpdateCarreraDto) {
-    return this.carrerasService.update(+id, updateCarreraDto);
+  @UsePipes(new ValidationPipe({whitelist: true}))
+  @Post()
+  async create(@Body() dto: CreateCarreraDto) {
+      return await this.carreraService.create(dto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.carrerasService.remove(+id);
-  }
 }

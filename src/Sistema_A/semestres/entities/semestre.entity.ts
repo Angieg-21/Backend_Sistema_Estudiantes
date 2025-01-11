@@ -6,7 +6,7 @@ import { Docente } from 'src/Sistema_A/usuarios/components/docentes/entities/doc
 
 @Entity('semestre')
 export class Semestre {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column({ type: 'int' })

@@ -11,13 +11,15 @@ import { Materia } from 'src/Sistema_A/materias/entities/materia.entity';
 import { Estudiante } from 'src/Sistema_A/usuarios/components/estudiantes/entities/estudiante.entity';
 import { Docente } from 'src/Sistema_A/usuarios/components/docentes/entities/docente.entity';
   
-  @Entity('carrera')
+@Entity({name: 'carrera'})
+
   export class Carrera {
-    @PrimaryGeneratedColumn()
+
+    @PrimaryGeneratedColumn('increment')
     id: number;
   
-    @Column({ type: 'varchar', length: 100 })
-    nombre: string;
+    @Column({type: 'varchar', length: 10, nullable: false, unique: true})
+    nombreCarrera: string;
   
     @Column({ type: 'text', nullable: true })
     descripcion: string;
@@ -45,5 +47,6 @@ import { Docente } from 'src/Sistema_A/usuarios/components/docentes/entities/doc
 
   @OneToMany(() => Docente, (docente) => docente.carrera)
   docentes: Docente[];
+
   }
   
