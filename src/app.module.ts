@@ -15,6 +15,7 @@ import { RolesModule } from './Sistema_A/roles/roles.module';
 import { DocentesModule } from './Sistema_A/usuarios/components/docentes/docentes.module';
 import { EstudiantesModule } from './Sistema_A/usuarios/components/estudiantes/estudiantes.module';
 import { CarrerasModule } from './Sistema_A/carreras/carreras.module';
+import { AuthModule } from './authentication/auth.module';
 
 @Module({
   imports: [
@@ -43,7 +44,8 @@ import { CarrerasModule } from './Sistema_A/carreras/carreras.module';
     RolesModule,
     DocentesModule,
     EstudiantesModule,
-    CarrerasModule
+    CarrerasModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
